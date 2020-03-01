@@ -1,0 +1,2 @@
+bazel build //:runner
+bazel-bin/runner --config=config.yaml --results=/autograder/results/results.json

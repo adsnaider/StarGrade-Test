@@ -1,0 +1,19 @@
+output: Stargrade Test 123
+stdout_visibility: visible
+test_parts:
+  - runfile: "sh"
+    tests:
+      - id: Foo-PrimeTest
+        max_score: 10
+        name: Testing for Primes
+        number: "1.1"
+        visibility: visible
+      - id: Foo-ReverseTest
+        max_score: 20
+        name: Testing for Reverse
+        number: "1.2"
+        visibility: visible
+
+    args:
+      - run.sh
+      - --gradescope
