@@ -21,4 +21,4 @@ cd /autograder/repo
 
 #bazel build -c opt //tests
 bazel build -c opt @stargrade//:runner
-cp bazel-bin/external/stargrade/runnner runner
+cp bazel-bin/external/stargrade/runner .
