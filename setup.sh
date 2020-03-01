@@ -7,3 +7,4 @@ echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" |
 apt update && apt install bazel -y
 
 bazel build -c opt @stargrade//:runner
+bazel build -c opt //tests
