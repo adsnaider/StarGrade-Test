@@ -1,17 +1,17 @@
 #!/usr/bin/bash
 
 # Bazel
-apt install curl -y
+apt-get install curl -y
 curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
-apt update && apt install bazel -y
+apt-get update && apt install bazel -y
 
 # Make
-apt install build-essential -y
+apt-get install build-essential -y
 
 # GTest
-apt install libgtest-dev -y
-apt install cmake -y
+apt-get  install libgtest-dev -y
+apt-get install cmake -y
 cd /usr/src/gtest
 cmake CMakeLists.txt
 make
