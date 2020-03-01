@@ -1,2 +1,3 @@
-bazel build //:runner
-bazel-bin/runner --config=config.yaml --results=/autograder/results/results.json
+#!/bin/sh
+
+bazel run -c opt @stargrade//:runner -- --pwd="$(pwd)" --config=config.yaml --results=results/results.json
