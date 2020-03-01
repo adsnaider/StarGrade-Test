@@ -1,13 +1,8 @@
 #include <gtest/gtest.h>
 
-#include "absl/flags/flag.h"
-#include "absl/flags/parse.h"
 #include "stargrade/gtest/gradescope_test_listener.h"
 
 #include "submission/submission.h"
-
-ABSL_FLAG(bool, gradescope, false,
-          "Defines whether to output the results for Gradescope or not.");
 
 TEST(Foo, PrimeTest) {
   EXPECT_TRUE(prime(5));
@@ -23,9 +18,12 @@ TEST(Foo, ReverseTest) {
 }
 
 int main(int argc, char **argv) {
-  absl::ParseCommandLine(argc, argv);
+  bool gradescope = false;
+  if (argc >= 2) {
+    gradescope = strcmp(argv[1], "--gradescope") == 0;
+  }
   testing::InitGoogleTest(&argc, argv);
-  if (absl::GetFlag(FLAGS_gradescope)) {
+  if (gradescope) {
     testing::TestEventListeners &listeners =
         testing::UnitTest::GetInstance()->listeners();
     delete listeners.Release(listeners.default_result_printer());
