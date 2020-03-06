@@ -2,3 +2,6 @@ bazel-bin
 bazel-autograder
 bazel-out
 bazel-testlogs
+
+results/
+bin/

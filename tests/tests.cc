@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
-
-#include "stargrade/gtest/gradescope_test_listener.h"
+#include <stargrade/gradescope_test_listener.h>
 
 #include "submission/submission.h"
 
