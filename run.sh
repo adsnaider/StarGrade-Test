@@ -1,4 +1,4 @@
 #/bin/sh
 
-make bin/tests
+make bin/tests > /dev/null
 ./bin/tests --gradescope

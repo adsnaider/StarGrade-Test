@@ -2,5 +2,4 @@
 
 #./runner --pwd="$(pwd)" --config=config.yaml --results=results/results.json
 #bazel run @stargrade//:runner -- --pwd="$(pwd)" --config=config.yaml --results=results/results.json
-make bin/tests
 starrun --pwd="$(pwd)" --config=config.yaml --results=results/results.json
