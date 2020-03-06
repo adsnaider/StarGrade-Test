@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+mkdir /autograder/deps/
+cd /autograder/deps
+
 # Bazel
 apt-get install curl -y
 curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
@@ -17,8 +20,21 @@ cmake CMakeLists.txt
 make
 cp *.a /usr/lib/
 
-cd /autograder/repo
+# Stargrade
+git clone git@github.com:adsnaider/StarGrade.git
+cd StarGrade
+bazel build -c opt :stargrade-deb
+apt install ./bazel-bin/stargrade-deb.deb
+cd ../
+rm -rf StarGrade
 
-#bazel build -c opt //tests
-bazel build -c opt @stargrade//:runner
-cp bazel-bin/external/stargrade/runner .
+# nlohmann json
+wget https://github.com/nlohmann/json/releases/download/v3.7.3/include.zip
+unzip -d nlohmann include.zip
+rm include.zip
+cd nlohmann/include
+cp -r nlohmann /usr/local/include/
+cd ../../
+rm -r nlohmann
+
+cd /autograder/repo

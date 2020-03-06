@@ -1,7 +1,7 @@
 output: Stargrade Test 123
 stdout_visibility: visible
 test_parts:
-  - run: "bazel run //tests -- --gradescope"
+  - run: "./run.sh"
     tests:
       - id: Foo-PrimeTest
         max_score: 10
